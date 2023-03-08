@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body {
+		  background-image: url('https://tse2.mm.bing.net/th?id=OIP.S1I_SxDJgo3Gy-1iHeXvLgAAAA&pid=Api&P=0');
+		  background-repeat:no-repeat;
+		  background-attachment:fixed;  
+		  background-size:contain;
+		  background-position-x: center;
+		}
+		.header {
+			
+  			text-align:left;
+  			color: rgb(18, 3, 3);
+  			font-size: 15px;
+		}
+		.button {
+  		background-color: #4CAF50; /* Green */
+  		border: none;
+  		color: white;
+  		padding: 5px 10px;
+  		text-align: center;
+  		text-decoration: none;
+  		display: inline-block;
+  		font-size: 13	px;
+  		margin: 2px 1px;
+  		transition-duration: 0.4s;
+  		cursor: pointer;
+		}
+		.button2{
+  		background-color: rgb(236, 239, 240); 
+  		color: black; 
+  		border: 2px solid #040e11;
+		}
+		.button2:hover {
+  		background-color: #3ac2f0;
+  		color: white;
+}
+		</style>
+		
+	<title>Temperature Converter</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		function convertTemp() {
+			var inputTemp = document.getElementById("inputTemp").value;
+			var selectedUnit = document.getElementById("unit").value;
+			var convertedTemp;
+			
+			if (selectedUnit === "celsius") {
+				convertedTemp = (parseFloat(inputTemp) * 1.8) + 32;
+				document.getElementById("result").innerHTML = convertedTemp.toFixed(2) + " °F";
+			} else if (selectedUnit === "fahrenheit") {
+				convertedTemp = (parseFloat(inputTemp) - 32) * 5/9;
+				document.getElementById("result").innerHTML = convertedTemp.toFixed(2) + " °C";
+			} else {
+				alert("Please select a unit type");
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="header">
+		<h1>Temperature Converter</h1>
+		
+	  </div>
+	
+	<form>
+		<label for="inputTemp">Degrees:</label>
+		<input type="text" id="inputTemp" name="inputTemp">
+		<select id="unit" name="unit">
+			<option value="">Type</option>
+			<option value="celsius">Celsius</option>
+			<option value="fahrenheit">Fahrenheit</option>
+		</select>
+		<button class="button button2" type="button" onclick="convertTemp()">Convert</button>
+	</form>
+	<div id="result"></div>
+</body>
+</html>
